@@ -31,7 +31,8 @@ def set_i(inp):
                     return "[.set key] has no value"
             elif set_par == "temp":
                 if set_val is not None:
-                    chat.temp(set_val)
+                    chat.s_temperature = set_val
+                    return ""
                 else:
                     return "[.set temp] has no value"
             else:

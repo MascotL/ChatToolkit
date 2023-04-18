@@ -1,6 +1,7 @@
 import openai
 
-S_temperature = ""
+
+s_temperature = 0.5
 
 
 def set_key(key):
@@ -10,9 +11,8 @@ def set_key(key):
 
 
 def chat(chat_text):
-    global S_temperature
 
-    # 解密打开
+    # 打开apikey
     with open('api_key.txt', 'r', encoding="utf-8") as f:
         api_key = f.read()
 
@@ -34,7 +34,7 @@ def chat(chat_text):
             max_tokens=1024,
             n=1,
             stop=None,
-            temperature=0.5,
+            temperature=s_temperature,
         )
         # 输出
         response = "ChatGPT: " + completion.choices[0].text + "\n\n"
